@@ -27,6 +27,7 @@ To set up a custom sorter for your specific party ranking, follow these steps:
 
 1. **Update `songList.json`:**
    - Replace the content of `songList.json` with your own list of songs. Each song should have an `id`, `anime`, `name`, `video`, and optionally an `mp3` field.
+   - Links should be either animemusicquiz catbox links or YouTube links.
    - Example:
      ```json
      [
@@ -43,6 +44,13 @@ To set up a custom sorter for your specific party ranking, follow these steps:
              "name": "Another Song Name",
              "video": "https://another-video-url.com",
              "mp3": "https://another-mp3-url.com"
+         },
+         {
+             "id": 3,
+             "anime": "Example Anime",
+             "name": "Example Song",
+             "video": "https://eudist.animemusicquiz.com/example.webm",
+             "mp3": "https://eudist.animemusicquiz.com/example.mp3"
          }
      ]
      ```
