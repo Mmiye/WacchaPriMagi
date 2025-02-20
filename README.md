@@ -10,6 +10,7 @@ party-ranking-sorter-template/
 ├── style.css
 ├── script.js
 ├── songList.json
+├── config.js
 └── README.md
 ```
 
@@ -17,8 +18,8 @@ party-ranking-sorter-template/
 
 - Autosave to the local storage after each duel.
 - Can load saved result or show final result if sorter was previously completed.
-- Options for choosing between mp3 and video files when sorting
-- Region selection for catbox links (EU, NA1, NA2)
+- Options for choosing between mp3 and video files when sorting.
+- Region selection for catbox links (EU, NA1, NA2).
 
 ## Setting Up a Custom Sorter
 
@@ -46,9 +47,16 @@ To set up a custom sorter for your specific party ranking, follow these steps:
      ]
      ```
 
-2. **Optionally Update the Title in `index.html`:**
-   - Open `index.html` and change the content of the `<title>` tag to match your custom sorter.
+2. **Update the Title and Description in `config.js`:**
+   - Open `config.js` and change the `title` and `description` variables to match your custom sorter.
    - Example:
-     ```html
-     <title>Your Custom Party Rank Sorter</title>
+     ```javascript
+     const config = {
+         title: "Your Custom Party Rank Sorter",
+         description: "Party rank sorter for your custom list of songs."
+     };
      ```
+
+## Credit
+
+The base UI of this sorter is credited to FlatoLitou.
