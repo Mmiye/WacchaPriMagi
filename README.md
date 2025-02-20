@@ -59,4 +59,4 @@ To set up a custom sorter for your specific party ranking, follow these steps:
 
 ## Credit
 
-The base UI of this sorter is credited to FlatoLitou.
+Most of the project was taken from this repo by FlatoLitou: [Winter2025ED](https://github.com/Flatolitou/Winter2025ED).
