@@ -57,7 +57,7 @@ To set up a custom sorter for your specific party ranking, follow these steps:
 
 2. **Update the Title and Description in `config.js`:**
    - Open `config.js` and change the `title` and `description` variables to match your custom sorter.
-   - Also you **will** have to change `localStoragePrefix` if you plan on hosting multiple github-pages from a single account (there is an issue of shared localstorage if base URL is the same, so need to diffirentiate `localStorage` for different party rankings)
+   - Also you **will** have to change `localStoragePrefix` if you plan on hosting multiple github-pages from a single account (there is an issue of shared `localStorage` if base URL is the same, so need to differentiate `localStorage` for different party rankings)
    - Example:
      ```javascript
      const config = {
