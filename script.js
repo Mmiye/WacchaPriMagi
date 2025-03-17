@@ -1,5 +1,3 @@
-import 'https://tomashubelbauer.github.io/github-pages-local-storage/index.js';
-
 let musicData = [];
 let sortedIndexList = [];
 let recordDataList = [];
@@ -45,8 +43,8 @@ configureLoadButton();
 function configureLoadButton() {
     let loadButton = document.getElementById("load");
     let title = document.querySelector('.title');
-    let battleNoLocal = JSON.parse(localStorage.getItem("battleNo"));
-    let leftIndexLocal = JSON.parse(localStorage.getItem("leftIndex"));
+    let battleNoLocal = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-battleNo`));
+    let leftIndexLocal = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-leftIndex`));
     if (battleNoLocal == null) {
         loadButton.hidden = true;
         title.textContent = 'Press "Start" to begin sorting.';
@@ -395,65 +393,65 @@ function copyToClipboard() {
 
 function autoSave() {
 
-    localStorage.setItem("sortedIndexList", JSON.stringify(sortedIndexList));
-    localStorage.setItem("recordDataList", JSON.stringify(recordDataList));
-    localStorage.setItem("parentIndexList", JSON.stringify(parentIndexList));
+    localStorage.setItem(`${config.localStoragePrefix}-sortedIndexList`, JSON.stringify(sortedIndexList));
+    localStorage.setItem(`${config.localStoragePrefix}-recordDataList`, JSON.stringify(recordDataList));
+    localStorage.setItem(`${config.localStoragePrefix}-parentIndexList`, JSON.stringify(parentIndexList));
 
-    localStorage.setItem("leftIndex", JSON.stringify(leftIndex));
-    localStorage.setItem("leftInnerIndex", JSON.stringify(leftInnerIndex));
-    localStorage.setItem("rightIndex", JSON.stringify(rightIndex));
-    localStorage.setItem("rightInnerIndex", JSON.stringify(rightInnerIndex));
-    localStorage.setItem("battleNo", JSON.stringify(battleNo));
-    localStorage.setItem("sortedNo", JSON.stringify(sortedNo));
-    localStorage.setItem("pointer", JSON.stringify(pointer));
+    localStorage.setItem(`${config.localStoragePrefix}-leftIndex`, JSON.stringify(leftIndex));
+    localStorage.setItem(`${config.localStoragePrefix}-leftInnerIndex`, JSON.stringify(leftInnerIndex));
+    localStorage.setItem(`${config.localStoragePrefix}-rightIndex`, JSON.stringify(rightIndex));
+    localStorage.setItem(`${config.localStoragePrefix}-rightInnerIndex`, JSON.stringify(rightInnerIndex));
+    localStorage.setItem(`${config.localStoragePrefix}-battleNo`, JSON.stringify(battleNo));
+    localStorage.setItem(`${config.localStoragePrefix}-sortedNo`, JSON.stringify(sortedNo));
+    localStorage.setItem(`${config.localStoragePrefix}-pointer`, JSON.stringify(pointer));
 
-    localStorage.setItem("sortedIndexListPrev", JSON.stringify(sortedIndexListPrev));
-    localStorage.setItem("recordDataListPrev", JSON.stringify(recordDataListPrev));
-    localStorage.setItem("parentIndexListPrev", JSON.stringify(parentIndexListPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-sortedIndexListPrev`, JSON.stringify(sortedIndexListPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-recordDataListPrev`, JSON.stringify(recordDataListPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-parentIndexListPrev`, JSON.stringify(parentIndexListPrev));
 
-    localStorage.setItem("leftIndexPrev", JSON.stringify(leftIndexPrev));
-    localStorage.setItem("leftInnerIndexPrev", JSON.stringify(leftInnerIndexPrev));
-    localStorage.setItem("rightIndexPrev", JSON.stringify(rightIndexPrev));
-    localStorage.setItem("rightInnerIndexPrev", JSON.stringify(rightInnerIndexPrev));
-    localStorage.setItem("battleNoPrev", JSON.stringify(battleNoPrev));
-    localStorage.setItem("sortedNoPrev", JSON.stringify(sortedNoPrev));
-    localStorage.setItem("pointerPrev", JSON.stringify(pointerPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-leftIndexPrev`, JSON.stringify(leftIndexPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-leftInnerIndexPrev`, JSON.stringify(leftInnerIndexPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-rightIndexPrev`, JSON.stringify(rightIndexPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-rightInnerIndexPrev`, JSON.stringify(rightInnerIndexPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-battleNoPrev`, JSON.stringify(battleNoPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-sortedNoPrev`, JSON.stringify(sortedNoPrev));
+    localStorage.setItem(`${config.localStoragePrefix}-pointerPrev`, JSON.stringify(pointerPrev));
 
-    localStorage.setItem("totalBattles", JSON.stringify(totalBattles));
+    localStorage.setItem(`${config.localStoragePrefix}-totalBattles`, JSON.stringify(totalBattles));
 }
 
 function loadProgress() {
-    battleNo = JSON.parse(localStorage.getItem("battleNo"));
-    leftIndex = JSON.parse(localStorage.getItem("leftIndex"));
+    battleNo = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-battleNo`));
+    leftIndex = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-leftIndex`));
     if (battleNo == null) {
         alert("Can't find resources");
         battleNo = 1;
         return;
     }
 
-    sortedIndexList = JSON.parse(localStorage.getItem("sortedIndexList"));
-    recordDataList = JSON.parse(localStorage.getItem("recordDataList"));
-    parentIndexList = JSON.parse(localStorage.getItem("parentIndexList"));
+    sortedIndexList = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-sortedIndexList`));
+    recordDataList = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-recordDataList`));
+    parentIndexList = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-parentIndexList`));
 
-    leftInnerIndex = JSON.parse(localStorage.getItem("leftInnerIndex"));
-    rightIndex = JSON.parse(localStorage.getItem("rightIndex"));
-    rightInnerIndex = JSON.parse(localStorage.getItem("rightInnerIndex"));
-    sortedNo = JSON.parse(localStorage.getItem("sortedNo"));
-    pointer = JSON.parse(localStorage.getItem("pointer"));
+    leftInnerIndex = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-leftInnerIndex`));
+    rightIndex = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-rightIndex`));
+    rightInnerIndex = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-rightInnerIndex`));
+    sortedNo = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-sortedNo`));
+    pointer = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-pointer`));
 
-    sortedIndexListPrev = JSON.parse(localStorage.getItem("sortedIndexListPrev"));
-    recordDataListPrev = JSON.parse(localStorage.getItem("recordDataListPrev"));
-    parentIndexListPrev = JSON.parse(localStorage.getItem("parentIndexListPrev"));
+    sortedIndexListPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-sortedIndexListPrev`));
+    recordDataListPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-recordDataListPrev`));
+    parentIndexListPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-parentIndexListPrev`));
 
-    leftIndexPrev = JSON.parse(localStorage.getItem("leftIndexPrev"));
-    leftInnerIndexPrev = JSON.parse(localStorage.getItem("leftInnerIndexPrev"));
-    rightIndexPrev = JSON.parse(localStorage.getItem("rightIndexPrev"));
-    rightInnerIndexPrev = JSON.parse(localStorage.getItem("rightInnerIndexPrev"));
-    battleNoPrev = JSON.parse(localStorage.getItem("battleNoPrev"));
-    sortedNoPrev = JSON.parse(localStorage.getItem("sortedNoPrev"));
-    pointerPrev = JSON.parse(localStorage.getItem("pointerPrev"));
+    leftIndexPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-leftIndexPrev`));
+    leftInnerIndexPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-leftInnerIndexPrev`));
+    rightIndexPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-rightIndexPrev`));
+    rightInnerIndexPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-rightInnerIndexPrev`));
+    battleNoPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-battleNoPrev`));
+    sortedNoPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-sortedNoPrev`));
+    pointerPrev = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-pointerPrev`));
 
-    totalBattles = JSON.parse(localStorage.getItem("totalBattles"));
+    totalBattles = JSON.parse(localStorage.getItem(`${config.localStoragePrefix}-totalBattles`));
 
     if (leftIndex == -1) {
         document.querySelector('.progress-container').removeAttribute("hidden");
