@@ -292,9 +292,15 @@ function result() {
     button1.classList.add("copy-button");
     button1.textContent = "Copy ranks to clipboard";
     button1.addEventListener("click", copyToClipboard);
+    
+    let button2 = document.createElement("button");
+    button2.classList.add("copy-button");
+    button2.textContent = "Copy sorted results";
+    button2.addEventListener("click", copyResults);
 
     let container = document.querySelector(".button-container");
     container.appendChild(button1);
+    container.appendChild(button2);
 
     const table = document.createElement('table');
     const thead = document.createElement('thead');
@@ -388,6 +394,27 @@ function copyToClipboard() {
         alert("Copied ranks to clipboard!");
     }).catch(err => {
         console.error("Error copying ranks :", err);
+    });
+}
+
+function copyResults() {
+    const sortedResults = [];
+    musicData.forEach(music => {
+        sortedResults.push({
+            id: music.id,
+            anime: music.anime,
+            name: music.name,
+            rank: sortedIndexList[0].indexOf(music.id - 1) + 1
+        });
+    });
+
+    sortedResults.sort((a, b) => a.rank - b.rank);
+
+    const textToCopy = sortedResults.map(result => `${result.rank}. ${result.anime} - ${result.name}`).join("\n");
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        alert("Copied results to clipboard!");
+    }).catch(err => {
+        console.error("Error copying results :", err);
     });
 }
 
